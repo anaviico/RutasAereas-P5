@@ -15,6 +15,10 @@ public:
 
 	//  CONSTRUCTORES
 
+	Ruta(){
+		codigo ="";
+	}
+
 	Ruta(vector<Punto> v){
 		puntos = v;
 	}
