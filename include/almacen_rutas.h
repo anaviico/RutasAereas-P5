@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "ruta.h"
+using namespace std;
 
 class Almacen_Rutas{
 
@@ -22,7 +23,7 @@ public:
 
 	}
 
-	Almacen_Rutas (const Almacen_Rutas & otro){
+	Almacen_Rutas (Almacen_Rutas &otro){
 		rutas = otro.getRutas();
 	}
 
@@ -68,10 +69,10 @@ public:
 			getline(is,a);
 		}
 
-		Punto p;
+		Ruta r;
 
-		while (is >> p);{
-			rlocal.Insertar(p);
+		while (is >> r);{
+			rlocal.Insertar(r);
 		}
 
 		ar = rlocal;
@@ -82,13 +83,15 @@ public:
 
 	friend ostream & operator << (ostream & os, const Almacen_Rutas & ar){
 
-		for (int i = 0; i < rutas.size(); i++){
-			os << rutas[i] << "\t";
+		for (int i = 0; i < ar.rutas.size(); i++){
+			os << ar.rutas[i] << "\t";
 		}
 
 		return os;
 
 	}
+
+	//sobrecargar =
 
 };
 
