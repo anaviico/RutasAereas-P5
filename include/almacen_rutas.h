@@ -23,7 +23,7 @@ public:
 
 	}
 
-	Almacen_Rutas (Almacen_Rutas &otro){
+	Almacen_Rutas (const Almacen_Rutas &otro){
 		rutas = otro.getRutas();
 	}
 
@@ -39,7 +39,7 @@ public:
 
 	// CONSULTORES
 
-	vector<Ruta> getRutas(){
+	vector<Ruta> getRutas() const{
 
 		return rutas;
 
@@ -60,7 +60,7 @@ public:
 
 	// SOBRECARGA DE OPERADORES
 
-	friend istream & operator >> (istream &is, const Almacen_Rutas &ar){
+	friend istream & operator >> (istream &is, Almacen_Rutas &ar){
 
 		Almacen_Rutas rlocal;
 
@@ -91,7 +91,13 @@ public:
 
 	}
 
-	//sobrecargar =
+	Almacen_Rutas& operator = (const Almacen_Rutas & otro){
+
+		rutas = otro.getRutas();
+
+		return *this;
+
+	}
 
 };
 

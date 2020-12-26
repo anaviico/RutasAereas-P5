@@ -77,6 +77,6 @@ public:
 	    
 	    return is;
 	}
-}
+};
 
 #endif
