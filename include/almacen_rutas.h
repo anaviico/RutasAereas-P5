@@ -27,6 +27,14 @@ public:
 	}
 
 
+	// MODIFICADORES
+
+	void Insertar(Ruta r){
+
+		rutas.push_back(r);
+
+	}
+
 
 	// CONSULTORES
 
@@ -48,6 +56,40 @@ public:
 
 
 	*/
+
+	// SOBRECARGA DE OPERADORES
+
+	friend istream & operator >> (istream &is, const Almacen_Rutas &ar){
+
+		Almacen_Rutas rlocal;
+
+		if (is.peek() == '#'){
+			string a;
+			getline(is,a);
+		}
+
+		Punto p;
+
+		while (is >> p);{
+			rlocal.Insertar(p);
+		}
+
+		ar = rlocal;
+
+		return is;
+
+	}
+
+	friend ostream & operator << (ostream & os, const Almacen_Rutas & ar){
+
+		for (int i = 0; i < rutas.size(); i++){
+			os << rutas[i] << "\t";
+		}
+
+		return os;
+
+	}
+
 };
 
 
