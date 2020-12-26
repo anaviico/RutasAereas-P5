@@ -54,6 +54,25 @@ public:
 	    }
 	    return os;
 	}
+
+	friend istream & operator >> (istream &is, Ruta &R){
+		Ruta rlocal;
+
+	    //leemos el comentario
+	    if (is.peek()=='#'){
+			string a;
+			getline(is,a);
+	    }	
+	      
+	    Pais P;
+	    while (is>>P){
+			rlocal.Insertar(P);
+		  
+	    }
+	    R=rlocal;
+	    
+	    return is;
+	}
 }
 
 #endif
