@@ -1,5 +1,5 @@
 #ifndef _PUNTO_
-#define _PUTNO_
+#define _PUNTO_
 
 #include <string>
 
@@ -45,13 +45,13 @@ public:
 	}
 
 
-	// SOBRECARGA DE OPERADORES
+	// CONSULTORES
 
 	bool operator == (Punto otro){
 
 		bool igual = true;
 		if (lat != otro.getLat() || lng != otro.getLng()){
-			igual = false
+			igual = false;
 		}
 
 		return igual;
