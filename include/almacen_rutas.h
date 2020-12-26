@@ -2,7 +2,7 @@
 #define _ALMECEN_RUTAS_
 
 #include <vector>
-#include "rutas.h"
+#include "ruta.h"
 
 class Almacen_Rutas{
 
