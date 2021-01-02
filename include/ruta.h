@@ -59,14 +59,14 @@ public:
 
 	friend ostream & operator << (ostream &os, const Ruta &R){
 		
-	   for (int i = 0; i < ar.rutas.size(); i++){
+	   for (int i = 0; i < R.puntos.size(); i++){
 			os << R.puntos[i] << "\t";
 	   }
 	   return os;
 	}
 
 	friend istream & operator >> (istream &is, Ruta &R){
-		Ruta rlocal;
+		Ruta rlocal
 
 	   //leemos el comentario
 	   if (is.peek()=='#'){
@@ -74,7 +74,7 @@ public:
 			getline(is,a);
 	   }	
 	      
-	   Pais P;
+	   Punto P;
 
 	   while (is>>P){
 			rlocal.Insertar(P); 
