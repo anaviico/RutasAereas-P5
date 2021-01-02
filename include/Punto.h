@@ -14,6 +14,8 @@ public:
 
 	//	CONSTRUCTORES
 
+	Punto();
+
 	Punto (double l, double ln){
 
 		lat = l;
@@ -37,11 +39,30 @@ public:
 		return lat;
 
 	}
+	double getLat() const{
+
+		return lat;
+
+	}
 
 	double getLng(){
 
 		return lng;
 
+	}
+	double getLng() const{
+
+		return lng;
+
+	}
+
+	// MODIFICADORES
+
+	void setLat(double l){
+		lat = l;
+	}
+	void setLng(double l){
+		lng = l;
 	}
 
 
@@ -55,6 +76,48 @@ public:
 		}
 
 		return igual;
+	}
+
+	// SOBRECARGA DE OPERADORES
+
+	friend ostream & operator << (ostream &os, const Punto &p){
+		
+		os << "Latitud: " << p.lat << endl;
+		os << "Longitud: " << p.lng;
+	   
+	   return os;
+	}
+
+	friend istream & operator >> (istream &is, Punto &P){
+
+	   //leemos el comentario
+	   if (is.peek()=='#'){
+			string a;
+			getline(is,a);
+	   }	
+	      
+	   double l;
+	   int count = 0;
+
+	   while (is>>P && count < 2){
+			if (count%2 == 0){
+				P.setLat(l);
+			}
+			else {
+				P.setLng(l);
+			}
+	   }
+	    
+	   return is;
+	}
+
+	Punto & operator = (const Punto &otro){
+
+		lat = otro.getLat();
+		lng = otro.getLng();
+
+		return *this;
+
 	}
 
 };
