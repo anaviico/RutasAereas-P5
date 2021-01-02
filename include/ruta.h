@@ -1,5 +1,7 @@
 #ifndef _RUTA_
 #define _RUTA_
+
+
 #include <vector>
 #include <ostream>
 #include "Punto.h"
@@ -82,6 +84,6 @@ public:
 	    
 	   return is;
 	}
-}
+};
 
 #endif
