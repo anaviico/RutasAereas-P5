@@ -1,0 +1,5 @@
+
+TAREAS A REALIZAR:
+
+    1- Arreglar errores de rutas_aereas.cpp
+    2- Ruta.h ostream, istream y añadir Iteradores
