@@ -45,18 +45,34 @@ public:
 
 	}
 
-	/*Almacen_Rutas GetRutas_con_Punto(Punto p){
-		// Llamar a tiene el punto
-		// ruta.h
+	Almacen_Rutas GetRutas_Con_Punto(Punto p){
+		
+		Ruta r;
+		bool encontrado = false;
+
+		for (int i = 0; i < rutas.size() && !encontrado; i++){
+			if (rutas[i].ContienePunto(p))
+				r = rutas[i];
+		}
+
 	}
 
-	Ruta GetRuta(string a){
-		// obtener ruta por código
-		// ruta.h
+	Ruta GetRuta(string codigo){
+		
+		Ruta r;
+		bool encontrado = false;
+
+		for (int i = 0; i < rutas.size() && !encontrado; i++){
+			if (rutas[i].GetCodigo() == codigo){
+				r = rutas[i];
+			}
+		}
+
+		return r;
+
 	}
 
 
-	*/
 
 	// SOBRECARGA DE OPERADORES
 
