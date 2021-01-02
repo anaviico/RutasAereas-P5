@@ -38,7 +38,7 @@ public:
 
 	// METODOS EXTRA
 
-	bool TieneElPunto(Punto p){
+	bool ContienePunto(Punto p){
 		bool tiene_punto = false;
 		for (int i = 0; i < puntos.size(); i++){
 			if(puntos[i] == p)
@@ -49,34 +49,39 @@ public:
 
 	}
 
+	void Insertar(Punto p){
+		puntos.push_back(p);
+	}
+
 	//  SOBRECARGA DE OPERADORES
 
 	friend ostream & operator << (ostream &os, const Ruta &R){
-		Ruta::const_iterator it;
-	    for (it=R.begin(); it!=R.end(); ++it){
-			os<<*it<<"\t";
-	    }
-	    return os;
+		
+	   for (int i = 0; i < ar.rutas.size(); i++){
+			os << R.puntos[i] << "\t";
+	   }
+	   return os;
 	}
 
 	friend istream & operator >> (istream &is, Ruta &R){
 		Ruta rlocal;
 
-	    //leemos el comentario
-	    if (is.peek()=='#'){
+	   //leemos el comentario
+	   if (is.peek()=='#'){
 			string a;
 			getline(is,a);
-	    }	
+	   }	
 	      
-	    Pais P;
-	    while (is>>P){
-			rlocal.Insertar(P);
-		  
-	    }
-	    R=rlocal;
+	   Pais P;
+
+	   while (is>>P){
+			rlocal.Insertar(P); 
+	   }
+
+	   R=rlocal;
 	    
-	    return is;
+	   return is;
 	}
-};
+}
 
 #endif
