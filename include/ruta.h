@@ -85,6 +85,13 @@ public:
 	   return is;
 	}
 
+	Ruta operator = (const Ruta & r){
+		this->codigo = r.codigo;
+		this->puntos = r.puntos;
+
+		return this;
+	}
+
 	class iterator{
 	private:
 	    vector<Punto>::iterator p;
