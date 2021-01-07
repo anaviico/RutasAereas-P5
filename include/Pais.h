@@ -12,6 +12,9 @@ class Pais{
     Punto GetPunto()const { return p;}
     string GetPais()const{ return pais;}
     string GetBandera()const{ return bandera;}
+
+    double GetLongitud()const {return p.getLng;}
+    double GetLatitud()const {return p.getLat;}
     
     bool operator<(const Pais &P)const{
 	return pais<P.pais;
