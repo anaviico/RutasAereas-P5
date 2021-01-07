@@ -66,7 +66,7 @@ public:
 	}
 
 	friend istream & operator >> (istream &is, Ruta &R){
-		Ruta rlocal
+		Ruta rlocal;
 
 	   //leemos el comentario
 	   if (is.peek()=='#'){
@@ -83,6 +83,86 @@ public:
 	   R=rlocal;
 	    
 	   return is;
+	}
+
+	class iterator{
+	private:
+	    vector<Punto>::iterator p;
+	public:
+	    iterator(){}
+	    iterator & operator ++(){
+		++p;
+		return * this;
+	    }
+	    
+	    iterator & operator --(){
+		--p;
+		return * this;
+	    }
+	    bool operator ==(const iterator  & it){
+		return it.p ==p;
+	    }
+	    bool operator !=(const iterator  & it){
+		return it.p !=p;
+	    }
+	     const Pais & operator*()const{
+		  return *p;
+	    }
+	};    
+	class const_iterator{
+	private:
+	    vector<Punto>::const_iterator p;
+	public:
+	    const_iterator(){}
+	    const_iterator(const iterator & it){
+	      p=it.p;
+	      
+	    }
+	    const_iterator & operator=(const iterator & it){
+		p=it.p;
+		return *this;
+	    }	
+	    const_iterator & operator ++(){
+		++p;
+		return * this;
+	    }
+	    
+	    const_iterator & operator --(){
+		--p;
+		return * this;
+	    }
+	    bool operator ==(const const_iterator  & it){
+		return it.p ==p;
+	    }
+	    bool operator !=(const const_iterator  & it){
+		return it.p !=p;
+	    }
+	    const Pais &operator*()const {
+		  return *p;
+	    }
+	    friend class Paises;
+	   
+	};
+	iterator begin(){
+	  iterator it;
+	  it.p = datos.begin();
+	  return it;
+	}  
+	
+	const_iterator begin()const{
+	  const_iterator it;
+	  it.p = datos.begin();
+	  return it;
+	}
+	iterator end(){
+	  iterator it;
+	  it.p = datos.end();
+	  return it;
+	}
+	const_iterator end()const{
+	  const_iterator it;
+	  it.p = datos.end();
+	  return it;
 	}
 };
 
