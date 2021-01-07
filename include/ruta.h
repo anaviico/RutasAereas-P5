@@ -89,7 +89,7 @@ public:
 		this->codigo = r.codigo;
 		this->puntos = r.puntos;
 
-		return this;
+		return *this;
 	}
 
 	class iterator{
@@ -112,7 +112,7 @@ public:
 	    bool operator !=(const iterator  & it){
 		return it.p !=p;
 	    }
-	     const Pais & operator*()const{
+	     const Punto & operator*()const{
 		  return *p;
 	    }
 	};    
@@ -152,23 +152,23 @@ public:
 	};
 	iterator begin(){
 	  iterator it;
-	  it.p = datos.begin();
+	  it.p = puntos.begin();
 	  return it;
 	}  
 	
 	const_iterator begin()const{
 	  const_iterator it;
-	  it.p = datos.begin();
+	  it.p = puntos.begin();
 	  return it;
 	}
 	iterator end(){
 	  iterator it;
-	  it.p = datos.end();
+	  it.p = puntos.end();
 	  return it;
 	}
 	const_iterator end()const{
 	  const_iterator it;
-	  it.p = datos.end();
+	  it.p = puntos.end();
 	  return it;
 	}
 };
