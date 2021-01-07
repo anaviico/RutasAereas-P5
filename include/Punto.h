@@ -34,23 +34,23 @@ public:
 
 	// OBTENCIÓN DE VALORES	
 
-	double getLat(){
+	double GetLatitud(){
 
 		return lat;
 
 	}
-	double getLat() const{
+	double GetLatitud() const{
 
 		return lat;
 
 	}
 
-	double getLng(){
+	double GetLongitud(){
 
 		return lng;
 
 	}
-	double getLng() const{
+	double GetLongitud() const{
 
 		return lng;
 

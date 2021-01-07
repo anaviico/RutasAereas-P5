@@ -115,8 +115,8 @@ class Paises{
 	      Paises rlocal;
 	      //leemos el comentario
 	      if (is.peek()=='#'){
-		string a;
-		getline(is,a);
+			string a;
+			getline(is,a);
 	      }	
 	      
 	      Pais P;
