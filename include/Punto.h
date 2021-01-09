@@ -2,7 +2,12 @@
 #define _PUNTO_
 
 #include <string>
+#include <cassert>
+#include <fstream>
+#include <iostream>
+#include <iostream>
 
+using namespace std;
 class Punto{
 private:
 
@@ -25,35 +30,20 @@ public:
 
 	Punto (double l, double ln, string n){
 		
-		lat = l;
-		lng = ln;
-		nombre = n;
+		this->lat = l;
+		this->lng = ln;
+		this->nombre = n;
 
 	}
 
 
 	// OBTENCIÓN DE VALORES	
-
-	double GetLatitud(){
-
-		return lat;
-
-	}
 	double GetLatitud() const{
-
 		return lat;
-
 	}
 
-	double GetLongitud(){
-
-		return lng;
-
-	}
 	double GetLongitud() const{
-
 		return lng;
-
 	}
 
 	// MODIFICADORES
@@ -71,7 +61,7 @@ public:
 	bool operator == (Punto otro){
 
 		bool igual = true;
-		if (lat != otro.getLat() || lng != otro.getLng()){
+		if (lat != otro.GetLatitud() || lng != otro.GetLongitud()){
 			igual = false;
 		}
 
@@ -113,8 +103,8 @@ public:
 
 	Punto & operator = (const Punto &otro){
 
-		lat = otro.getLat();
-		lng = otro.getLng();
+		lat = otro.GetLatitud();
+		lng = otro.GetLongitud();
 
 		return *this;
 

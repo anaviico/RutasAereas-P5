@@ -47,13 +47,14 @@ public:
 
 	Almacen_Rutas GetRutas_Con_Punto(Punto p){
 		
-		Ruta r;
-		bool encontrado = false;
+		Almacen_Rutas ar;
 
-		for (int i = 0; i < rutas.size() && !encontrado; i++){
+		for (int i = 0; i < rutas.size(); i++){
 			if (rutas[i].ContienePunto(p))
-				r = rutas[i];
+				ar.Insertar(rutas[i]);
 		}
+
+		return ar;
 
 	}
 
