@@ -142,9 +142,9 @@ public:
 		bool operator != (const iterator &it){
 			return it.p != p;
 		}
-// wtf?!?!
+
 		const Ruta & operator *() const{
-			return *p;
+			return (*p).second;
 		}
 
 		friend class Almacen_Rutas;
