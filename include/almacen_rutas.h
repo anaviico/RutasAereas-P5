@@ -1,7 +1,7 @@
 #ifndef _ALMACEN_RUTAS_
 #define _ALMECEN_RUTAS_
 
-#include <vector>
+#include <map>
 #include "ruta.h"
 using namespace std;
 
@@ -9,7 +9,7 @@ class Almacen_Rutas{
 
 private:
 
-	vector<Ruta> rutas;
+	multimap<string, Ruta> rutas;
 
 public: 
 
@@ -17,7 +17,7 @@ public:
 
 	Almacen_Rutas ();
 
-	Almacen_Rutas (vector<Ruta> rts){
+	Almacen_Rutas (multimap<string, Ruta> rts){
 
 		rutas = rts;
 
@@ -32,14 +32,14 @@ public:
 
 	void Insertar(Ruta r){
 
-		rutas.push_back(r);
+		rutas.insert(pair<const string, Ruta> (r.GetCodigo(), r));
 
 	}
 
 
 	// CONSULTORES
 
-	vector<Ruta> getRutas() const{
+	multimap<string, Ruta> getRutas() const{
 
 		return rutas;
 
@@ -49,9 +49,9 @@ public:
 		
 		Almacen_Rutas ar;
 
-		for (int i = 0; i < rutas.size(); i++){
-			if (rutas[i].ContienePunto(p))
-				ar.Insertar(rutas[i]);
+		for (auto &it : rutas){
+			if(it.second.ContienePunto(p))
+				ar.Insertar(it.second);
 		}
 
 		return ar;
@@ -63,9 +63,9 @@ public:
 		Ruta r;
 		bool encontrado = false;
 
-		for (int i = 0; i < rutas.size() && !encontrado; i++){
-			if (rutas[i].GetCodigo() == codigo){
-				r = rutas[i];
+		for (multimap<string, Ruta>::iterator it = rutas.begin(); it != rutas.end(); it++){
+			if ((*it).second.GetCodigo() == codigo){
+				r = (*it).second;
 			}
 		}
 
@@ -97,11 +97,11 @@ public:
 		return is;
 
 	}
-
+// arreglar
 	friend ostream & operator << (ostream & os, const Almacen_Rutas & ar){
 
-		for (int i = 0; i < ar.rutas.size(); i++){
-			os << ar.rutas[i] << "\t";
+		for (multimap<string, Ruta>::iterator it = ar.getRutas().begin(); it != ar.getRutas().end(); it++){
+			os << (*it).second << "\t";
 		}
 
 		return os;
@@ -115,6 +115,49 @@ public:
 		return *this;
 
 	}
+
+
+	// CLASES ITERADORAS
+	
+	class cont_iterator;
+	class iterator{
+	private:
+		multimap<string, Ruta>::iterator p;
+	public:
+		iterator(){}
+		iterator & operator ++(){
+			++p;
+			return *this;
+		}
+
+		iterator & operator --(){
+			--p;
+			return *this;
+		}
+
+		bool operator == (const iterator &it){
+			return it.p == p;
+		}
+
+		bool operator != (const iterator &it){
+			return it.p != p;
+		}
+// wtf?!?!
+		const Ruta & operator *() const{
+			return *p;
+		}
+
+		friend class Almacen_Rutas;
+		friend class const_iterator;
+	};
+
+	class const_iterator{
+	private:
+		multimap<string, Ruta>::const_iterator p;
+	public:
+		const_iterator(){}
+
+	};
 
 };
 
