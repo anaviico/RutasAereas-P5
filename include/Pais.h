@@ -13,9 +13,9 @@ class Pais{
     string GetPais()const{ return pais;}
     string GetBandera()const{ return bandera;}
 
-    double GetLongitud() {return p.GetLongitud();}
+    double GetLongitud() const {return p.GetLongitud();}
     
-    double GetLatitud() {return p.GetLatitud();}
+    double GetLatitud() const{return p.GetLatitud();}
     
     bool operator<(const Pais &P)const{
 	    return pais<P.pais;
@@ -26,7 +26,7 @@ class Pais{
     }
     
     bool operator==(const Punto &P)const{
-	    return p==P;
+	    return (p == P);
     }
 
     friend istream & operator>>(istream & is, Pais & P){

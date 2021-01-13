@@ -58,7 +58,7 @@ public:
 
 	}
 
-	Ruta GetRuta(string codigo){
+	Ruta & GetRuta(string codigo){
 		
 		Ruta r;
 		bool encontrado = false;
@@ -97,7 +97,7 @@ public:
 		return is;
 
 	}
-// arreglar
+
 	friend ostream & operator << (ostream & os, const Almacen_Rutas & ar){
 
 		for (multimap<string, Ruta>::iterator it = ar.getRutas().begin(); it != ar.getRutas().end(); it++){
