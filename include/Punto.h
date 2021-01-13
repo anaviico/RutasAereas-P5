@@ -86,17 +86,13 @@ public:
 			getline(is,a);
 	   }	
 	      
-	   double l;
+	   double la, lo;
 	   int count = 0;
 
-	   while (is>>P && count < 2){
-			if (count%2 == 0){
-				P.setLat(l);
-			}
-			else {
-				P.setLng(l);
-			}
-	   }
+	   is >> la >> lo;
+
+	   P.setLat(la);
+	   P.setLng(lo);
 	    
 	   return is;
 	}
@@ -108,6 +104,10 @@ public:
 
 		return *this;
 
+	}
+
+	bool operator == (const Punto &otro) const{
+		return (lat == otro.GetLatitud() && lng == otro.GetLongitud());
 	}
 
 };
