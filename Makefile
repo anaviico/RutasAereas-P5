@@ -63,10 +63,10 @@ $(BIN)/rutas_aereas : $(OBJ)/rutas_aereas.o $(OBJ)/imagen.o
 ### Objetos
 
 $(OBJ)/rutas_aereas.o : $(SRC)/rutas_aereas.cpp $(SRC)/imagen.cpp $(INCLUDE)/Paises.h $(INCLUDE)/almacen_rutas.h $(INCLUDE)/imagen.h
-	g++ -c -o $(OBJ)/rutas_aereas.o $(SRC)/rutas_aereas.cpp -I$(INCLUDE)
+	g++ -c -o $(OBJ)/rutas_aereas.o $(SRC)/rutas_aereas.cpp -I$(INCLUDE) -std=c++11
 
 $(OBJ)/imagen.o : $(SRC)/imagen.cpp $(INCLUDE)/imagen.h
-	g++ -o $(OBJ)/imagen.o $(SRC)/imagen.cpp -I$(INLCUDE)
+	g++ -o $(OBJ)/imagen.o $(SRC)/imagen.cpp -I$(INLCUDE) -std=c++11
 
 
 ### Limpieza de archivos

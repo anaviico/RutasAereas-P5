@@ -25,7 +25,7 @@ public:
 		puntos = v;
 	}
 
-	Ruta(Ruta &R){
+	Ruta(const Ruta &R){
 		puntos = R.puntos;
 		codigo = R.codigo;
 	}
