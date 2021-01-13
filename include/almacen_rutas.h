@@ -15,7 +15,7 @@ public:
 
 	// CONSTRUCTORES
 
-	Almacen_Rutas ();
+	Almacen_Rutas (){};
 
 	Almacen_Rutas (multimap<string, Ruta> rts){
 

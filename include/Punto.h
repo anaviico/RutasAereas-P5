@@ -19,7 +19,7 @@ public:
 
 	//	CONSTRUCTORES
 
-	Punto();
+	Punto(){};
 
 	Punto (double l, double ln){
 
@@ -87,7 +87,7 @@ public:
 	   }	
 	      
 	   double la, lo;
-	   int count = 0;
+	   
 
 	   is >> la >> lo;
 
